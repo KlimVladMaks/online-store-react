@@ -54,8 +54,7 @@
     color: #fff;
     border-radius: 50%;
     cursor: pointer;
-    transition: transform  300ms ease;
-    transform: color 300ms ease;
+    transition: color, transform 300ms ease;
 }
 
 .add-button:hover {
