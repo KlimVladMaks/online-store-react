@@ -1,0 +1,25 @@
+@import url('../../../../../assets/styles/colors.css');
+
+.item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    min-height: 100px;
+}
+
+.img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 18px;
+}
+
+.title {
+    font-size: 18px;
+    margin-bottom: 7px;
+}
+
+.price {
+    color: var(--orange);
+}

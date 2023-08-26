@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import ProductList from "./product-list/ProductList";
@@ -47,10 +48,18 @@ const products = [
 ]
 
 const Home = () => {
+
+    let [orders, setOrders] = useState([]);
+
+    const addToOrders = (product) => {
+        setOrders([...orders, product]);
+    }
+
     return (
         <div className={styles.wrapper}>
-            <Header />
-            <ProductList products={products} />
+            <Header orders={orders} />
+            <ProductList products={products}
+                         addToOrders={addToOrders} />
             <Footer />
         </div>
     );

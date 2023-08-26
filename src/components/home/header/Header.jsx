@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import styles from './Header.module.css'
-import { FaShoppingCart } from 'react-icons/fa';
+/* eslint-disable react/prop-types */
 
-const Header = () => {
+import { useState } from 'react';
+import { FaShoppingCart } from 'react-icons/fa';
+import styles from './Header.module.css';
+import Cart from './cart-list/CartList';
+
+const Header = ({orders}) => {
 
     let [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -11,11 +14,12 @@ const Header = () => {
             <div className={styles['header-top']}>
                 <span className={styles.logo}>Online Store</span>
                 <FaShoppingCart className={`${styles['shop-cart-button']} ${isCartOpen && styles.active}`}
-                                onClick={() => setIsCartOpen(!isCartOpen)} />
+                                onClick={() => setIsCartOpen(!isCartOpen)}
+                                size={20} />
             </div>
             {isCartOpen && (
-                <div className={styles['shop-cart']}></div>
-                )}
+                <Cart orders={orders} />
+            )}
             <div className={styles.banner}></div>
         </header>
     );
