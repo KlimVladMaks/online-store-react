@@ -3,10 +3,15 @@
 .item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     width: 100%;
-    float: left;
     margin-bottom: 10px;
     min-height: 100px;
+}
+
+.product-info {
+    display: flex;
+    align-items: center;
 }
 
 .img {
@@ -22,4 +27,15 @@
 
 .price {
     color: var(--orange);
+}
+
+.del-button {
+    cursor: pointer;
+    color: var(--red);
+    transition: color, transform 300ms ease;
+}
+
+.del-button:hover {
+    color: var(--red-hover);
+    transform: scale(1.3);
 }
