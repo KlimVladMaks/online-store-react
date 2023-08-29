@@ -42,7 +42,7 @@ const products = [
         title: "HUAWEI Watch 4 Pro",
         img: "https://ir.ozone.ru/s3/multimedia-z/wc700/6686335391.jpg",
         desc: "Умные часы HUAWEI Watch 4 Pro, Dark Brown",
-        category: "Смарт-часы и фитнес-браслеты",
+        category: "Смарт-часы",
         price: 38399,
     },
 ]

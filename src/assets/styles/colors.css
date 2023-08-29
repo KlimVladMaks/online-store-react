@@ -1,8 +1,11 @@
 :root {
+    --white: #fff;
+    --black: #222;
     --orange: #e26e09;
     --orange-hover: #ff7e0d;
     --orange-active: #ff7e0d;
     --red: #ca5252;
     --red-hover: #d83030;
     --gray: #8f8f8f;
+    --light-gray: #f5f5f5;
 }
