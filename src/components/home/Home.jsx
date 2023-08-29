@@ -52,11 +52,17 @@ const Home = () => {
     let [orders, setOrders] = useState([]);
 
     const addToOrders = (product) => {
-        setOrders([...orders, product]);
+        if (!orders.includes(product)) {
+            setOrders([...orders, product]);
+        }
     }
 
     const deleteOrder = (id) => {
         setOrders(orders.filter(order => order.id !== id));
+    }
+
+    const isProductInOrders = (id) => {
+        return orders.some(order => order.id === id);
     }
 
     return (
@@ -64,6 +70,7 @@ const Home = () => {
             <Header orders={orders}
                     deleteOrder={deleteOrder} />
             <ProductList products={products}
+                         isProductInOrders={isProductInOrders}
                          addToOrders={addToOrders} />
             <Footer />
         </div>
