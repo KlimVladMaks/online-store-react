@@ -1,0 +1,12 @@
+@import url("../../../../../assets/styles/colors.css");
+
+.sum {
+    width: 100%;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.sum b {
+    color: var(--orange);
+}
