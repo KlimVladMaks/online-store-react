@@ -3,7 +3,7 @@
 import styles from './CartItem.module.css';
 import { FaTrash } from 'react-icons/fa';
 
-const CartItem = ({order}) => {
+const CartItem = ({order, deleteOrder}) => {
     return (
         <div className={styles.item}>
             <div className={styles['product-info']}>
@@ -13,7 +13,9 @@ const CartItem = ({order}) => {
                     <b className={styles.price}>{order.price} ₽</b>
                 </div>
             </div>
-            <FaTrash className={styles['del-button']} size={18} />
+            <FaTrash className={styles['del-button']} 
+                     size={18}
+                     onClick={() => deleteOrder(order.id)} />
         </div>
     );
 }

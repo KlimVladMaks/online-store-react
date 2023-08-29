@@ -55,9 +55,14 @@ const Home = () => {
         setOrders([...orders, product]);
     }
 
+    const deleteOrder = (id) => {
+        setOrders(orders.filter(order => order.id !== id));
+    }
+
     return (
         <div className={styles.wrapper}>
-            <Header orders={orders} />
+            <Header orders={orders}
+                    deleteOrder={deleteOrder} />
             <ProductList products={products}
                          addToOrders={addToOrders} />
             <Footer />
