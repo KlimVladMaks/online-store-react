@@ -45,6 +45,22 @@ const products = [
         category: "Смарт-часы",
         price: 38399,
     },
+    {
+        id: 6,
+        title: "Xiaomi 12 Lite",
+        img: "https://ir.ozone.ru/s3/multimedia-i/wc700/6488513502.jpg",
+        desc: "Смартфон Xiaomi 12 Lite 8/128 ГБ, зеленый",
+        category: "Смартфоны",
+        price: 27065,
+    },
+    {
+        id: 7,
+        title: "OnePlus Nord 3",
+        img: "https://ir.ozone.ru/s3/multimedia-e/wc700/6719323154.jpg",
+        desc: "Смартфон OnePlus Nord 3 5G, глобальная версия 16/256 ГБ, зеленый",
+        category: "Смартфоны",
+        price: 37146,
+    },
 ]
 
 const Home = () => {
