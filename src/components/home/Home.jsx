@@ -1,8 +1,9 @@
 import { useState } from "react";
+import styles from "./Home.module.css";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import ProductList from "./product-list/ProductList";
-import styles from "./Home.module.css";
+import FullCard from "./full-card/FullCard";
 
 const products = [
     {
@@ -67,6 +68,9 @@ const Home = () => {
 
     let [orders, setOrders] = useState([]);
 
+    let [isShowFullCard, setIsShowFullCard] = useState(false);
+    let [fullCartProduct, setFullCartProduct] = useState({});
+
     const addToOrders = (product) => {
         if (!orders.includes(product)) {
             setOrders([...orders, product]);
@@ -81,13 +85,28 @@ const Home = () => {
         return orders.some(order => order.id === id);
     }
 
+    const openFullCard = (product) => {
+        setFullCartProduct(product);
+        setIsShowFullCard(true);
+    }
+
+    const closeFullCard = () => {
+        setFullCartProduct({});
+        setIsShowFullCard(false);
+    }
+
     return (
         <div className={styles.wrapper}>
             <Header orders={orders}
                     deleteOrder={deleteOrder} />
             <ProductList products={products}
                          isProductInOrders={isProductInOrders}
-                         addToOrders={addToOrders} />
+                         addToOrders={addToOrders}
+                         openFullCard={openFullCard} />
+            {isShowFullCard && <FullCard product={fullCartProduct}
+                                         isProductInOrders={isProductInOrders}
+                                         addToOrders={addToOrders}
+                                         closeFullCard={closeFullCard} />}
             <Footer />
         </div>
     );

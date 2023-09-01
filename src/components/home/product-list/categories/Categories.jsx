@@ -24,7 +24,7 @@ const Categories = ({products, chooseCategory, currentCategory}) => {
     return (
         <div className={styles['category-list']}>
             <div key={'all'} 
-                 className={`${styles['category-item']} ${currentCategory === 'all' && styles.active}`}
+                 className={`${styles['category-item']} ${currentCategory === 'all' && styles.active} ${styles.all}`}
                  onClick={() => chooseCategory('all')}>Всё</div>
             {categories.map(category => (
                 <div key={category} 

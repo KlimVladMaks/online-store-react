@@ -5,7 +5,7 @@ import styles from "./ProductList.module.css";
 import ProductCard from "./product-card/ProductCard";
 import Categories from "./categories/Categories";
 
-const ProductList = ({products, isProductInOrders, addToOrders}) => {
+const ProductList = ({products, isProductInOrders, addToOrders, openFullCard}) => {
 
     let [currentProducts, setCurrentProducts] = useState(products);
     let [currentCategory, setCurrentCategory] = useState('all');
@@ -31,7 +31,8 @@ const ProductList = ({products, isProductInOrders, addToOrders}) => {
                     <ProductCard key={product.id} 
                                  product={product}
                                  isProductInOrders={isProductInOrders}
-                                 addToOrders={addToOrders} />
+                                 addToOrders={addToOrders}
+                                 openFullCard={openFullCard} />
                 ))}
             </main>
         </div>

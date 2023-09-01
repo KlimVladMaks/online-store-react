@@ -28,3 +28,9 @@
     transform: scale(1.05);
     border-color: transparent;
 }
+
+.all {
+    font-weight: 500;
+    color: #585858;
+    border-width: 2px;
+}
