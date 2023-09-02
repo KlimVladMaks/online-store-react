@@ -3,7 +3,7 @@
 .card {
     width: 30%;
     margin-left: 1%;
-    background: #f5f5f5;
+    background: var(--light-gray);
     overflow: hidden;
     border-radius: 10px;
     position: relative;
@@ -29,7 +29,7 @@
 .title,
 .desc {
     margin: 10px 20px;
-    color: #333;
+    color: var(--dark-gray);
 }
 
 .title {
@@ -63,7 +63,7 @@
     height: 35px;
     text-align: center;
     line-height: 35px;
-    color: #fff;
+    color: var(--white);
     border-radius: 50%;
     cursor: pointer;
     transition: color, transform 300ms ease;

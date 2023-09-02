@@ -31,6 +31,6 @@
 
 .all {
     font-weight: 500;
-    color: #585858;
+    color: var(--dark-gray);
     border-width: 2px;
 }

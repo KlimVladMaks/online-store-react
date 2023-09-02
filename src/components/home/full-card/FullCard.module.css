@@ -1,3 +1,5 @@
+@import url("../../../assets/styles/colors.css");
+
 .modal-window {
     position: fixed;
     display: flex;
@@ -15,7 +17,7 @@
     align-items: center;
     position: relative;
     margin: auto;
-    background: #fff;
+    background: var(--white);
     border-radius: 10px;
     padding-top: 10px;
 }
@@ -23,7 +25,7 @@
 .close {
     position: absolute;
     font-size: 100px;
-    color: #fff;
+    color: var(--white);
     top: -80px;
     right: -60px;
     line-height: 1;
@@ -44,7 +46,7 @@
 .title,
 .desc {
     margin: 10px 20px;
-    color: #333;
+    color: var(--dark-gray);
 }
 
 .price-button-container {
@@ -66,7 +68,7 @@
     height: 35px;
     text-align: center;
     line-height: 35px;
-    color: #fff;
+    color: var(--white);
     border-radius: 50%;
     cursor: pointer;
     transition: color, transform 300ms ease;
