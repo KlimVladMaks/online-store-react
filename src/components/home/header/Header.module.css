@@ -40,8 +40,7 @@
     border-radius: 10px;
 }
 
-.banner::after {
-    content: "Интернет-магазин полезных вещей";
+.banner-title {
     position: absolute;
     top: 80px;
     left: 50px;
@@ -50,8 +49,7 @@
     font-weight: 600;
 }
 
-.banner::before {
-    content: "Для вас и ваших близких";
+.banner-subtitle {
     position: absolute;
     top: 190px;
     left: 50px;

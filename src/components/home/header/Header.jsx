@@ -21,7 +21,10 @@ const Header = ({ orders, deleteOrder }) => {
                 <CartList orders={orders}
                           deleteOrder={deleteOrder} />
             )}
-            <div className={styles.banner}></div>
+            <div className={styles.banner}>
+                <span className={styles['banner-title']}>Интернет-магазин полезных вещей</span>
+                <span className={styles['banner-subtitle']}>Для вас и ваших близких</span>
+            </div>
         </header>
     );
 }
