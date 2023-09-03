@@ -1,75 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styles from "./Home.module.css";
 import Header from "./header/Header";
 import Footer from "./footer/Footer";
 import ProductList from "./product-list/ProductList";
 import FullCard from "./full-card/FullCard";
-
-const products = [
-    {
-        id: 1,
-        title: "iPhone 14 Pro Max",
-        img: "https://ir.ozone.ru/s3/multimedia-k/wc700/6404606900.jpg",
-        desc: "Смартфон Apple iPhone 14 Pro Max Dual SIM 6/1 ТБ, темно-серый",
-        category: "Смартфоны",
-        price: 155222,
-    },
-    {
-        id: 2,
-        title: "Samsung Galaxy Tab A8",
-        img: "https://ir.ozone.ru/s3/multimedia-h/wc700/6228835601.jpg",
-        desc: "Планшет Samsung Galaxy Tab A8 Wi-Fi (SM-X200), 10.5'', 64GB, серебристый",
-        category: "Планшеты",
-        price: 16886,
-    },
-    {
-        id: 3,
-        title: "Honor MagicBook 14",
-        img: "https://ir.ozone.ru/s3/multimedia-8/wc700/6114724664.jpg",
-        desc: "14'' Ноутбук Honor MagicBook 14, AMD Ryzen 5 5500U (2.1 ГГц), RAM 8 ГБ, SSD 512 ГБ, AMD Radeon Graphics, Windows Home, (5301AFLS), серый, Российская клавиатура",
-        category: "Ноутбуки",
-        price: 44951,
-    },
-    {
-        id: 4,
-        title: "Xiaomi TV A2",
-        img: "https://ir.ozone.ru/s3/multimedia-7/wc700/6599607991.jpg",
-        desc: "Телевизор Xiaomi TV A2 43'' 4K UHD, черный",
-        category: "Телевизоры",
-        price: 24824,
-    },
-    {
-        id: 5,
-        title: "HUAWEI Watch 4 Pro",
-        img: "https://ir.ozone.ru/s3/multimedia-z/wc700/6686335391.jpg",
-        desc: "Умные часы HUAWEI Watch 4 Pro, Dark Brown",
-        category: "Смарт-часы",
-        price: 38399,
-    },
-    {
-        id: 6,
-        title: "Xiaomi 12 Lite",
-        img: "https://ir.ozone.ru/s3/multimedia-i/wc700/6488513502.jpg",
-        desc: "Смартфон Xiaomi 12 Lite 8/128 ГБ, зеленый",
-        category: "Смартфоны",
-        price: 27065,
-    },
-    {
-        id: 7,
-        title: "OnePlus Nord 3",
-        img: "https://ir.ozone.ru/s3/multimedia-e/wc700/6719323154.jpg",
-        desc: "Смартфон OnePlus Nord 3 5G, глобальная версия 16/256 ГБ, зеленый",
-        category: "Смартфоны",
-        price: 37146,
-    },
-]
+import ProductServices from "../../services/ProductServices";
 
 const Home = () => {
 
+    let [products, setProducts] = useState([]);
+    let [isProductsLoading, setIsProductsLoading] = useState(true);
     let [orders, setOrders] = useState([]);
 
     let [isShowFullCard, setIsShowFullCard] = useState(false);
     let [fullCartProduct, setFullCartProduct] = useState({});
+
+    useEffect(() => {
+
+        const fetchProducts = async () => {
+            const loadedProducts = await ProductServices.getAll();
+            setProducts(loadedProducts);
+            setIsProductsLoading(false);
+        }
+
+        fetchProducts();
+    }, [])
 
     const addToOrders = (product) => {
         if (!orders.includes(product)) {
@@ -99,10 +54,11 @@ const Home = () => {
         <div className={styles.wrapper}>
             <Header orders={orders}
                     deleteOrder={deleteOrder} />
-            <ProductList products={products}
-                         isProductInOrders={isProductInOrders}
-                         addToOrders={addToOrders}
-                         openFullCard={openFullCard} />
+            {isProductsLoading && <h2 className={styles["loading-message"]}>Загрузка товаров...</h2>}
+            {!isProductsLoading && <ProductList products={products}
+                                                isProductInOrders={isProductInOrders}
+                                                addToOrders={addToOrders}
+                                                openFullCard={openFullCard} />}
             {isShowFullCard && <FullCard product={fullCartProduct}
                                          isProductInOrders={isProductInOrders}
                                          addToOrders={addToOrders}
