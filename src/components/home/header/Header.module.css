@@ -17,14 +17,19 @@
     font-size: 23px;
 }
 
-.shop-cart-button {
+.header-buttons {
+    display: flex;
+    gap: 30px;
+}
+
+.header-button {
     cursor: pointer;
     transition: color, transform 300ms ease;
     color: var(--black);
 }
 
-.shop-cart-button:hover,
-.shop-cart-button.active {
+.header-button:hover,
+.header-button.active {
     color: var(--orange-hover);
     transform: scale(1.4);
 }
