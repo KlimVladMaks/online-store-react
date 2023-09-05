@@ -57,12 +57,16 @@ const Home = () => {
         setIsAddProductMenuOpen(true);
     }
 
+    const closeAddProductMenu = () => {
+        setIsAddProductMenuOpen(false);
+    }
+
     return (
         <div className={styles.wrapper}>
             <Header orders={orders}
                     deleteOrder={deleteOrder}
                     openAddProductMenu={openAddProductMenu} />
-            {isAddProductMenuOpen && <AddProductMenu />}
+            {isAddProductMenuOpen && <AddProductMenu closeAddProductMenu={closeAddProductMenu} />}
             {isProductsLoading && <h2 className={styles["loading-message"]}>Загрузка товаров...</h2>}
             {!isProductsLoading && <ProductList products={products}
                                                 isProductInOrders={isProductInOrders}
