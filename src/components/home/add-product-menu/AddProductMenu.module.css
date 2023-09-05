@@ -1,0 +1,28 @@
+@import url("../../../assets/styles/colors.css");
+
+.modal-window {
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgb(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.modal-menu {
+    width: 600px;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    background: var(--white);
+    border-radius: 10px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}

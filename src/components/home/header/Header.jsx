@@ -5,7 +5,7 @@ import { FaShoppingCart, FaPlus } from 'react-icons/fa';
 import styles from './Header.module.css';
 import CartList from './cart-list/CartList';
 
-const Header = ({ orders, deleteOrder }) => {
+const Header = ({ orders, deleteOrder, openAddProductMenu }) => {
 
     let [isCartOpen, setIsCartOpen] = useState(false);
 
@@ -18,6 +18,7 @@ const Header = ({ orders, deleteOrder }) => {
                         onClick={() => setIsCartOpen(!isCartOpen)}
                         size={20} />
                     <FaPlus className={styles['header-button']}
+                            onClick={() => openAddProductMenu()}
                             size={20} />
                 </div>
             </div>

@@ -5,6 +5,7 @@ import Footer from "./footer/Footer";
 import ProductList from "./product-list/ProductList";
 import FullCard from "./full-card/FullCard";
 import ProductServices from "../../services/ProductServices";
+import AddProductMenu from "./add-product-menu/AddProductMenu";
 
 const Home = () => {
 
@@ -14,6 +15,8 @@ const Home = () => {
 
     let [isShowFullCard, setIsShowFullCard] = useState(false);
     let [fullCartProduct, setFullCartProduct] = useState({});
+
+    let [isAddProductMenuOpen, setIsAddProductMenuOpen] = useState(false);
 
     useEffect(() => {
 
@@ -50,10 +53,16 @@ const Home = () => {
         setIsShowFullCard(false);
     }
 
+    const openAddProductMenu = () => {
+        setIsAddProductMenuOpen(true);
+    }
+
     return (
         <div className={styles.wrapper}>
             <Header orders={orders}
-                    deleteOrder={deleteOrder} />
+                    deleteOrder={deleteOrder}
+                    openAddProductMenu={openAddProductMenu} />
+            {isAddProductMenuOpen && <AddProductMenu />}
             {isProductsLoading && <h2 className={styles["loading-message"]}>Загрузка товаров...</h2>}
             {!isProductsLoading && <ProductList products={products}
                                                 isProductInOrders={isProductInOrders}
