@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./ProductList.module.css";
 import ProductCard from "./product-card/ProductCard";
 import Categories from "./categories/Categories";
@@ -9,6 +9,10 @@ const ProductList = ({products, isProductInOrders, addToOrders, openFullCard}) =
 
     let [currentProducts, setCurrentProducts] = useState(products);
     let [currentCategory, setCurrentCategory] = useState('all');
+
+    useEffect(() => {
+        setCurrentProducts(products);
+    }, [products]);
 
     const chooseCategory = (category) => {
         let filteredProducts;

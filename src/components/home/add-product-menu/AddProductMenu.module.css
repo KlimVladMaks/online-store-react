@@ -41,6 +41,12 @@
 .input {
     padding: 10px;
     border-radius: 10px;
+    outline: 0;
+    border: 2px solid var(--gray);
+}
+
+.input:focus {
+    border: 2px solid var(--orange-active);
 }
 
 .add-button {

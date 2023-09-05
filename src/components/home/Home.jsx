@@ -66,7 +66,9 @@ const Home = () => {
             <Header orders={orders}
                     deleteOrder={deleteOrder}
                     openAddProductMenu={openAddProductMenu} />
-            {isAddProductMenuOpen && <AddProductMenu closeAddProductMenu={closeAddProductMenu} />}
+            {isAddProductMenuOpen && <AddProductMenu closeAddProductMenu={closeAddProductMenu}
+                                                     products={products}
+                                                     setProducts={setProducts} />}
             {isProductsLoading && <h2 className={styles["loading-message"]}>Загрузка товаров...</h2>}
             {!isProductsLoading && <ProductList products={products}
                                                 isProductInOrders={isProductInOrders}
